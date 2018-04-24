@@ -1,6 +1,7 @@
 package com.skateboard.numberrain
 
 import android.content.Context
+import android.graphics.Canvas
 import android.graphics.Color
 import android.util.AttributeSet
 import android.widget.LinearLayout
@@ -40,22 +41,23 @@ class NumberRain(context: Context, attrs: AttributeSet?) : LinearLayout(context,
         setBackgroundColor(Color.BLACK)
     }
 
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int)
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int)
     {
-        super.onSizeChanged(w, h, oldw, oldh)
         addRainItems()
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+
     }
 
     private fun addRainItems()
     {
-        val count = width / textSize.toInt()
+        val count = measuredWidth / textSize.toInt()
         for (i in 0 until count)
         {
             val numberRainItem = NumberRainItem(context)
             numberRainItem.hightLightColor = hightLightColor
             numberRainItem.textSize = textSize
             numberRainItem.normalColor = normalColor
-            val layoutParams = LayoutParams(textSize.toInt() + 10, height)
+            val layoutParams = LayoutParams(textSize.toInt() + 10, measuredHeight)
             numberRainItem.startOffset = (Math.random() * 1000).toLong()
             addView(numberRainItem, layoutParams)
         }
