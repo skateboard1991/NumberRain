@@ -69,8 +69,8 @@ class NumberRainItem(context: Context, attrs: AttributeSet?) : View(context, att
     private fun parseAttrs(attrs: AttributeSet)
     {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.NumberRainItem)
-        normalColor = typedArray.getColor(R.styleable.NumberRainItem_normalColor, Color.GREEN)
-        hightLightColor = typedArray.getColor(R.styleable.NumberRainItem_highLightColor, Color.RED)
+        normalColor = typedArray.getColor(R.styleable.NumberRainItem_normalColor, normalColor)
+        hightLightColor = typedArray.getColor(R.styleable.NumberRainItem_highLightColor, hightLightColor)
         startOffset = typedArray.getInt(R.styleable.NumberRainItem_startOffset, 0).toLong()
         textSize = typedArray.getDimension(R.styleable.NumberRainItem_textSize, textSize)
         typedArray.recycle()
