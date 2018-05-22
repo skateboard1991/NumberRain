@@ -29,8 +29,8 @@ class NumberRain(context: Context, attrs: AttributeSet?) : LinearLayout(context,
     private fun parseAttrs(attrs: AttributeSet)
     {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.NumberRain)
-        normalColor = typedArray.getColor(R.styleable.NumberRain_normalColor, Color.GREEN)
-        hightLightColor = typedArray.getColor(R.styleable.NumberRain_highLightColor, Color.RED)
+        normalColor = typedArray.getColor(R.styleable.NumberRain_normalColor, normalColor)
+        hightLightColor = typedArray.getColor(R.styleable.NumberRain_highLightColor, hightLightColor)
         textSize = typedArray.getDimension(R.styleable.NumberRain_textSize, textSize)
         typedArray.recycle()
     }
